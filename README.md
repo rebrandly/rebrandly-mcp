@@ -55,3 +55,13 @@ This tool generates a short URL via Rebrandly.
 | workspace   | ❌       | Optional workspace ID (for multi-workspace accounts) |
 | slashtag    | ❌       | Optional custom slug                                 |
 | title       | ❌       | Optional title for the short link                    |
+
+## License
+
+Licensed under MIT - see [LICENSE](./LICENSE) file.
+
+## Rebrandly in MCP Registries
+
+- [https://mcpreview.com/mcp-servers/rebrandly/rebrandly-mcp](https://mcpreview.com/mcp-servers/rebrandly/rebrandly-mcp)
+- [https://mcp.so/server/rebrandly-mcp/rebrandly](https://mcp.so/server/rebrandly-mcp/rebrandly)
+- [https://glama.ai/mcp/servers/@rebrandly/rebrandly-mcp](https://glama.ai/mcp/servers/@rebrandly/rebrandly-mcp)
