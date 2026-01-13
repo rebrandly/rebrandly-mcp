@@ -1,6 +1,7 @@
 # Rebrandly MCP Tool (Go) - ARCHIVED
 
-> **This repository has been archived.** Rebrandly now provides an official MCP server with expanded capabilities. Please use the official solution instead.
+> [!WARNING]
+> **This repository has been archived.** Rebrandly now provides an official MCP server with expanded capabilities. [Please use the official solution instead](https://developers.rebrandly.com/docs/mcp-server)
 
 ## Official Rebrandly MCP Server
 
