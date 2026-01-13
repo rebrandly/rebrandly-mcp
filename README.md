@@ -1,67 +1,51 @@
-# Rebrandly MCP Tool (Go)
+# Rebrandly MCP Tool (Go) - ARCHIVED
 
-This project implements a simple MCP server in Go that exposes a single tool (`create_short_link`) to generate short URLs using the Rebrandly API.
+> [!WARNING]
+> **This repository has been archived.** Rebrandly now provides an official MCP server with expanded capabilities. [Please use the official solution instead](https://developers.rebrandly.com/docs/mcp-server)
 
-## Requirements
+## Official Rebrandly MCP Server
 
-- Go 1.20 or higher
-- A [Rebrandly](https://www.rebrandly.com) account and an API Key
+Rebrandly offers an official MCP server that connects AI assistants like Claude, Gemini, and GitHub Copilot to your Rebrandly account with full-featured support for:
 
-## Build Instructions
+- **Link Management** - Create, update, search, and organize branded short links
+- **Analytics** - Access click statistics, geographic data, and device information
+- **Account Management** - Workspace administration, teammate management, and domain operations
 
-1. Clone this repository or save the `main.go` file.
-2. Build the binary using:
+### Quick Start
 
-```bash
-go build -o rebrandly-tool main.go
-```
-
-This will generate an executable named `rebrandly-tool`.
-
-## Usage with Claude Desktop
-
-Claude Desktop supports custom MCP servers. To connect this tool:
-
-1. Open your Claude Desktop configuration.
-2. Add the following entry under `mcpServers`:
+Add this configuration to your Claude Desktop `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "Rebrandly": {
-      "command": "PATH/TO/rebrandly-tool",
-      "args": [],
-      "env": {
-        "REBRANDLY_API_KEY": "YOUR_KEY"
-      }
+    "rebrandly": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "supergateway",
+        "--streamableHttp",
+        "https://mcp.rebrandly.com/v1/mcp",
+        "--header",
+        "REBRANDLY_API_KEY:YOUR_API_KEY"
+      ]
     }
   }
 }
 ```
 
-> 🔧 Replace `PATH/TO/rebrandly-tool` with the actual path to the binary, and `YOUR_KEY` with your Rebrandly API Key.
+Replace `YOUR_API_KEY` with your Rebrandly API key from your account settings.
 
-## Tool Available
+### Documentation
 
-### `create_short_link`
+- [MCP Server Overview](https://developers.rebrandly.com/docs/mcp-server)
+- [Quick Start Guide](https://developers.rebrandly.com/docs/quick-start-for-mcp)
 
-This tool generates a short URL via Rebrandly.
+---
 
-#### Parameters
+## About This Repository
 
-| Name        | Required | Description                                          |
-| ----------- | -------- | ---------------------------------------------------- |
-| destination | ✅       | The original long URL to shorten                     |
-| workspace   | ❌       | Optional workspace ID (for multi-workspace accounts) |
-| slashtag    | ❌       | Optional custom slug                                 |
-| title       | ❌       | Optional title for the short link                    |
+This was an early implementation of a Rebrandly MCP server written in Go. It exposed a single `create_short_link` tool for generating short URLs. The official Rebrandly MCP server supersedes this implementation with a more complete feature set.
 
 ## License
 
 Licensed under MIT - see [LICENSE](./LICENSE) file.
-
-## Rebrandly in MCP Registries
-
-- [https://mcpreview.com/mcp-servers/rebrandly/rebrandly-mcp](https://mcpreview.com/mcp-servers/rebrandly/rebrandly-mcp)
-- [https://mcp.so/server/rebrandly-mcp/rebrandly](https://mcp.so/server/rebrandly-mcp/rebrandly)
-- [https://glama.ai/mcp/servers/@rebrandly/rebrandly-mcp](https://glama.ai/mcp/servers/@rebrandly/rebrandly-mcp)
